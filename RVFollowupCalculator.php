@@ -474,7 +474,6 @@ td, th {
                     $vsini = $_GET['vsini'];
                     $Prot = $_GET['Prot'];
 
-
 		    // get simulation 
 		    $Kdetsig = $_GET['Kdetsig'];
 		    $Ntrials = $_GET['Ntrials'];

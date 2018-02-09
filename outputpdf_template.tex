@@ -1,0 +1,56 @@
+\documentclass[a4paper]{article}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+
+\title{\textbf{<<title>>}}
+
+\begin{document}
+\maketitle
+
+\section{Input parameters}
+\subsection{Planetary parameters}
+\begin{tabular}{ll}
+  Orbital period [days] & <<P>> \\
+  Planetary radius [$R_{\oplus}$] & <<rp>> \\
+  Planetary mass [$M_{\oplus}$] & <<mp>> \\
+  RV semi-amplitude [m/s] & <<K>>
+\end{tabular}
+
+\subsection{Stellar parameters}
+<<mags>> \\
+
+\noindent
+\begin{tabular}{ll}
+  Stellar mass [$M_{\odot}$] & <<Ms>> \\  
+  Stellar radius [$R_{\odot}$] & <<Rs>> \\
+  Effective temperature [$K$] & <<Teff>> \\
+  Metallicity [Fe/H] & <<Z>> \\
+  $v\sin{i_s}$ [km/s] & <<vsini>> \\
+  Rotation period [days] & <<Prot>>
+\end{tabular}
+
+\subsection{Spectrograph parameters}
+\begin{tabular}{ll}
+  Spectral resolution [$\delta \lambda / \lambda$] & <<R>> \\
+  Telescope aperture [m] & <<aperture>> \\
+  Throughput & <<throughput>> \\
+  RV noise floor [m/s] & <<RVnoisefloor>> \\
+  Central wavelength [$\mu$m] & <<centralwl_microns>> \\ 
+  Target S/N per resolution element & <<SNRtarget>> \\
+  Maximum fractional telluric absorption & <<transmission_threshold>> \\
+  Minimum exposure time [min] & <<texpmin>> \\
+  Maximum exposure time [min] & <<texpmax>> \\
+  Overhead time [min] & <<toverhead>> \\
+  \textbf{Photon-noise limited RV precision [m/s]} & \textbf{<<sigRV_phot>>}
+\end{tabular}
+
+\pagebreak
+
+\section{Results}
+
+
+
+\end{document}
