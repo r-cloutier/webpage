@@ -88,6 +88,11 @@ td, th {
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
                             <li><a class="page-scroll" href="index.html">Home</a></li>
+                            <li><a class="page-scroll" href="index.html#about-section">About</a></li>
+                            <li><a class="page-scroll" href="index.html#research-section">Research</a></li>
+                            <li><a class="page-scroll" href="index.html#cv-section">CV</a></li>
+                            <li><a class="page-scroll" href="index.html#contact-section">Contact</a></li>
+                            <li><a href="RVFollowupCalculator.php">RVFC</a></li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
                   </div><!-- /.container -->
@@ -120,20 +125,20 @@ td, th {
 		    	//echo "You have selected " .$spectrograph_input_file;
 			$file = fopen($spectrograph_input_file, 'r');
 			$data = fgetcsv($file, filesize($spectrograph_input_file));
-			$Rin = $data[0];
-                        $aperturein = $data[1];
-                        $throughputin = $data[2];
-                        $floorin = $data[3];
-                        $wlcenin = $data[4];
-                        $targetsnrin = $data[5];
-                        $maxtelluricin = $data[6];
-                        $mintexpin = $data[7];
-                        $maxtexpin = $data[8];
-                        $overheadin = $data[9];
-			$mag1 = $data[10];
+			$specname = $data[0];
+			$Rin = $data[1];
+                        $aperturein = $data[2];
+                        $throughputin = $data[3];
+                        $floorin = $data[4];
+                        $wlcenin = $data[5];
+                        $targetsnrin = $data[6];
+                        $maxtelluricin = $data[7];
+                        $mintexpin = $data[8];
+                        $maxtexpin = $data[9];
+                        $overheadin = $data[10];
 
                         // get spectral bands
-			for ($i=10; $i<=sizeof($data)-1; $i++) {
+			for ($i=11; $i<=sizeof($data)-1; $i++) {
 			    if ($data[$i] == "U") {
 				$Ubandin = "Yes";
 			    } elseif ($data[$i] == "B") {
@@ -211,20 +216,20 @@ td, th {
                         $spectrograph_input_file = $_GET['spectrograph'];
                         $file = fopen($spectrograph_input_file, 'r');
                         $data = fgetcsv($file, filesize($spectrograph_input_file));
-                        $Rin = $data[0];
-                        $aperturein = $data[1];
-                        $throughputin = $data[2];
-                        $floorin = $data[3];
-                        $wlcenin = $data[4];
-                        $targetsnrin = $data[5];
-                        $maxtelluricin = $data[6];
-                        $mintexpin = $data[7];
-                        $maxtexpin = $data[8];
-                        $overheadin = $data[9];
-                        $mag1 = $data[10];
+			$specname = $data[0];
+                        $Rin = $data[1];
+                        $aperturein = $data[2];
+                        $throughputin = $data[3];
+                        $floorin = $data[4];
+                        $wlcenin = $data[5];
+                        $targetsnrin = $data[6];
+                        $maxtelluricin = $data[7];
+                        $mintexpin = $data[8];
+                        $maxtexpin = $data[9];
+                        $overheadin = $data[10];
 
                         // get spectral bands
-                        for ($i=10; $i<=sizeof($data)-1; $i++) {
+                        for ($i=11; $i<=sizeof($data)-1; $i++) {
                             if ($data[$i] == "U") {
                                 $Ubandin = "Yes";
                             } elseif ($data[$i] == "B") {
@@ -283,8 +288,22 @@ td, th {
                 </table>
                 <br>&emsp;<input type=submit value="Resolve remaining fields" name="stellar"/>
 
-		<!--add stellar parameters-->
 		<br><br>
+                <p style="font-size:20px">&nbsp;&nbsp;&nbsp;<b>Planet parameters:</b></p><br>&nbsp;&nbsp;&nbsp;
+                <table>
+                    <tr>
+                        <td style="padding: 0px 0px 10px 30px;">Orbital period (days) :&nbsp;&nbsp;<input type="text" name="P" value="<?php echo isset($_GET['P']) ? $_GET['P'] : $P ?>"  size="10" maxlength="50"/></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 0px 0px 10px 30px;">Planetary radius (R<sub>&#x02295;</sub>) :&nbsp;&nbsp;<input type="text" name="rp" value="<?php echo isset($_GET['rp']) ? $_GET['rp'] : $rp ?>"  size="10" maxlength="50"/></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 0px 0px 10px 30px;">Planetary mass (M<sub>&#x02295;</sub>) :&nbsp;&nbsp;<input type="text" name="mp" value="<?php echo isset($_GET['mp']) ? $_GET['mp'] : $rp ?>"  size="10" maxlength="50"/>&ensp;(leave blank to estimate the planetary mass from its radius)</td>
+                    </tr>
+                </table>
+
+		<!--add stellar parameters-->
+		<br>
                 <p style="font-size:20px">&nbsp;&nbsp;&nbsp;<b>Stellar parameters:</b></p><br>&nbsp;&nbsp;&nbsp;
 		<table>
 		     <?php if (isset($_GET['Uband'])) : ?>
@@ -359,20 +378,6 @@ td, th {
                     <tr>
                         <td style="padding: 0px 0px 10px 30px;">Projected rotation velocity (km/s) :&nbsp;&nbsp;<input type="text" name="vsini" value="<?php echo isset($_GET['vsini']) ? $_GET['vsini'] : $vsini ?>"  size="10" maxlength="50"/></td>
                         <td style="padding: 0px 0px 10px 30px;">Rotation period (days) :&nbsp;&nbsp;<input type="text" name="Prot" value="<?php echo isset($_GET['Prot']) ? $_GET['Prot'] : $Prot ?>"  size="10" maxlength="50"/></td>
-                    </tr>
-                </table>
-
-		<br>
-                <p style="font-size:20px">&nbsp;&nbsp;&nbsp;<b>Planet parameters:</b></p><br>&nbsp;&nbsp;&nbsp;
-                <table>
-                    <tr>
-                        <td style="padding: 0px 0px 10px 30px;">Orbital period (days) :&nbsp;&nbsp;<input type="text" name="P" value="<?php echo isset($_GET['P']) ? $_GET['P'] : $P ?>"  size="10" maxlength="50"/></td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 0px 0px 10px 30px;">Planetary radius (R<sub>&#x02295;</sub>) :&nbsp;&nbsp;<input type="text" name="rp" value="<?php echo isset($_GET['rp']) ? $_GET['rp'] : $rp ?>"  size="10" maxlength="50"/></td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 0px 0px 10px 30px;">Planetary mass (M<sub>&#x02295;</sub>) :&nbsp;&nbsp;<input type="text" name="mp" value="<?php echo isset($_GET['mp']) ? $_GET['mp'] : $rp ?>"  size="10" maxlength="50"/>&ensp;(leave blank to estimate the planetary mass from its radius)</td>
                     </tr>
                 </table>
 
