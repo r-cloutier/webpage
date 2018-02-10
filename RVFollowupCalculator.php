@@ -408,7 +408,9 @@ td, th {
                         <td style="padding: 0px 0px 10px 30px;">Number of trials :&nbsp;&nbsp;<input type="text" name="Ntrials" value="<?php echo isset($_GET['Ntrials']) ? $_GET['Ntrials'] : 100 ?>"  size="10" maxlength="50"/></td>
                     </tr>
                 </table>
-                <br>&emsp;<input type=submit value="Submit" name="submit"/>
+                &emsp;&emsp;<input type="checkbox" value="runGP" <?php if (!isset($_GET['runGP'])) : ?> checked<?php endif; ?> name="runGP">&nbsp;&nbsp;check to compute the total observing time including a quasi-periodic Gaussian process activity model (will significantly slow the calculation wall time)
+
+                <br><br>&emsp;<input type=submit value="Submit" name="submit"/>
 	    <?php endif; ?>
 
 	    </form>
@@ -477,12 +479,17 @@ td, th {
 		    // get simulation 
 		    $Kdetsig = $_GET['Kdetsig'];
 		    $Ntrials = $_GET['Ntrials'];
+		    if (isset($_GET['runGP'])) {
+			$runGP = 1;
+		    } else {
+			$runGP = 0;
+		    }
 
 		    // set blank values
 		    //if (! is_numeric($mp)) {$mp}
 		
 		    // call calculator
-		    $command = "python nRV_calculator $bands $R $aperture $throughput $floor $wlcen $targetsnr $maxtelluric $mintexp $maxtexp $overhead $sigRVphot $sigRVact $sigRVplanets $sigRVeff $P $rp $mp $mags $Ms $Rs $Teff $Z $vsini $Prot $Kdetsig $ $Ntrials";
+		    $command = "python nRV_calculator $bands $R $aperture $throughput $floor $wlcen $targetsnr $maxtelluric $mintexp $maxtexp $overhead $sigRVphot $sigRVact $sigRVplanets $sigRVeff $P $rp $mp $mags $Ms $Rs $Teff $Z $vsini $Prot $Kdetsig $ $Ntrials $runGP";
 		    //exec($command);
 
 		}
