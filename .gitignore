@@ -1,6 +1,5 @@
 *~
 *pyc
-*pdf
 *png
 *mp4
 *gif
@@ -8,3 +7,6 @@
 /WebPage
 /InputFiles
 /InputData
+/SPIRouSensitivities
+/help
+/downloads

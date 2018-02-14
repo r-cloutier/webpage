@@ -411,6 +411,7 @@ td, th {
                 &emsp;&emsp;<input type="checkbox" value="runGP" <?php if (!isset($_GET['runGP'])) : ?> checked<?php endif; ?> name="runGP">&nbsp;&nbsp;check to compute the total observing time including a quasi-periodic Gaussian process activity model (will significantly slow the calculation wall time)
 
                 <br><br>&emsp;<input type=submit value="Submit" name="submit"/>
+
 	    <?php endif; ?>
 
 	    </form>
