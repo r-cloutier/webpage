@@ -31,7 +31,7 @@
 <p style="font-size:20px">&nbsp;&nbsp;&nbsp;<b>RV noise sources:</b></p><br>&nbsp;&nbsp;&nbsp;
 <table>
 	<tr>
-		<td style="padding: 0px 0px 10px 30px;">Exposure time (sec) :&nbsp;&nbsp;<input type="text" name="texp" value="<?php echo isset($_GET['texp']) ? $_GET['texp'] : $texp ?>"  size="10" maxlength="50"/></td>
+		<td style="padding: 0px 0px 10px 30px;">Exposure time (min) :&nbsp;&nbsp;<input type="text" name="texp" value="<?php echo isset($_GET['texp']) ? $_GET['texp'] : $texp ?>"  size="10" maxlength="50"/></td>
 	</tr>
 	<tr>
 		<td style="padding: 0px 0px 10px 30px;">Photon-noise limited RV precision (m/s) :&nbsp;&nbsp;<input type="text" name="sigRVphot" value="<?php echo isset($_GET['sigRVphot']) ? $_GET['sigRVphot'] : $sigRVphot ?>"  size="10" maxlength="50"/></td>
