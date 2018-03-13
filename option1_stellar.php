@@ -6,7 +6,6 @@
 <select name="spectrograph">
 <option value="nospec">--</option>
 <option value="SpectrographFiles/apfinfile.txt">APF</option>
-<option value="SpectrographFiles/apogeeinfile.txt">APOGEE</option>
 <option value="SpectrographFiles/carmenesirinfile.txt">CARMENES-IR</option>
 <option value="SpectrographFiles/carmenesvisinfile.txt">CARMENES-VIS</option>
 <option value="SpectrographFiles/coralieinfile.txt">CORALIE</option>
@@ -123,19 +122,86 @@
 </table>
 
 
+
 <br>
 <p style="font-size:20px">&nbsp;&nbsp;&nbsp;<b>Stellar parameters:</b></p><br>&nbsp;&nbsp;&nbsp;
 <table>
-        <tr>
-                <td style="padding: 0px 0px 10px 30px;">Stellar mass (M<sub>&#x02299;</sub>) :&nbsp;&nbsp;<input type="text" name="Ms" value="<?php echo isset($_GET['Ms']) ? $_GET['Ms'] : $Ms ?>"  size="10" maxlength="50"/></td>
-        </tr>
-        <tr>
-                <td style="padding: 0px 0px 10px 30px;">Effective temperature (K) :&nbsp;&nbsp;<input type="text" name="Teff" value="<?php echo isset($_GET['Teff']) ? $_GET['Teff'] : $Teff ?>"  size="10" maxlength="50"/>&ensp;(only required if sampling either the RV activity rms or RV rms from additional planets)</td>
-        </tr>
-        <tr>
-                <td style="padding: 0px 0px 10px 30px;">Rotation period (days) :&nbsp;&nbsp;<input type="text" name="Prot" value="<?php echo isset($_GET['Prot']) ? $_GET['Prot'] : $Prot ?>"  size="10" maxlength="50"/>&ensp;(only required if sampling the RV activity rms)</td>
-        </tr>
+
+	<?php if (isset($_GET['Uband'])) : ?>
+                        <tr>
+                            <td style="padding: 0px 0px 10px 30px;">U :&nbsp;&nbsp;<input type="text" name="Umag" value="<?php echo isset($_GET['Umag']) ? $_GET['Umag'] : $Umag ?>"  size="10" maxlength="50"/></td>
+                        </tr>
+                    <?php endif; ?>
+                    <?php if (isset($_GET['Bband'])) : ?>
+                        <tr>
+                            <td style="padding: 0px 0px 10px 30px;">B :&nbsp;&nbsp;<input type="text" name="Bmag" value="<?php echo isset($_GET['Bmag']) ? $_GET['Bmag'] : $Bmag ?>"  size="10" maxlength="50"/></td>
+                        </tr>
+                    <?php endif; ?>
+                    <?php if (isset($_GET['Vband'])) : ?>
+                        <tr>
+                            <td style="padding: 0px 0px 10px 30px;">V :&nbsp;&nbsp;<input type="text" name="Vmag" value="<?php echo isset($_GET['Vmag']) ? $_GET['Vmag'] : $Vmag ?>"  size="10" maxlength="50"/></td>
+                        </tr>
+                    <?php endif; ?>
+                    <?php if (isset($_GET['Rband'])) : ?>
+                        <tr>
+                            <td style="padding: 0px 0px 10px 30px;">R :&nbsp;&nbsp;<input type="text" name="Rmag" value="<?php echo isset($_GET['Rmag']) ? $_GET['Rmag'] : $Rmag ?>"  size="10" maxlength="50"/></td>
+                        </tr>
+                    <?php endif; ?>
+                    <?php if (isset($_GET['Iband'])) : ?>
+                        <tr>
+                            <td style="padding: 0px 0px 10px 30px;">I :&nbsp;&nbsp;<input type="text" name="Imag" value="<?php echo isset($_GET['Imag']) ? $_GET['Imag'] : $Imag ?>"  size="10" maxlength="50"/></td>
+                        </tr>
+                    <?php endif; ?>
+                    <?php if (isset($_GET['Yband'])) : ?>
+                        <tr>
+                            <td style="padding: 0px 0px 10px 30px;">Y :&nbsp;&nbsp;<input type="text" name="Ymag" value="<?php echo isset($_GET['Ymag']) ? $_GET['Ymag'] : $Ymag ?>"  size="10" maxlength="50"/></td>
+                        </tr>
+                    <?php endif; ?>
+                    <?php if (isset($_GET['Jband'])) : ?>
+                        <tr>
+                            <td style="padding: 0px 0px 10px 30px;">J :&nbsp;&nbsp;<input type="text" name="Jmag" value="<?php echo isset($_GET['Jmag']) ? $_GET['Jmag'] : $Jmag ?>"  size="10" maxlength="50"/></td>
+                        </tr>
+                    <?php endif; ?>
+                    <?php if (isset($_GET['Hband'])) : ?>
+                        <tr>
+                            <td style="padding: 0px 0px 10px 30px;">H :&nbsp;&nbsp;<input type="text" name="Hmag" value="<?php echo isset($_GET['Hmag']) ? $_GET['Hmag'] : $Hmag ?>"  size="10" maxlength="50"/></td>
+                        </tr>
+                    <?php endif; ?>
+                    <?php if (isset($_GET['Kband'])) : ?>
+                        <tr>
+                            <td style="padding: 0px 0px 10px 30px;">K :&nbsp;&nbsp;<input type="text" name="Kmag" value="<?php echo isset($_GET['Kmag']) ? $_GET['Kmag'] : $Kmag ?>"  size="10" maxlength="50"/></td>
+                        </tr>
+	<?php endif; ?>
 </table>
+<table>
+        <?php if (!isset($_GET['Uband']) &&
+                  !isset($_GET['Bband']) &&
+                  !isset($_GET['Vband']) &&
+                  !isset($_GET['Rband']) &&
+                  !isset($_GET['Iband']) &&
+                  !isset($_GET['Yband']) &&
+                  !isset($_GET['Jband']) &&
+                  !isset($_GET['Hband']) &&
+                  !isset($_GET['Kband'])) {
+                  echo "No spectral bands selected!";
+                  }
+		  ?>
+
+                    <tr>
+                        <td style="padding: 0px 0px 10px 30px;">Stellar mass (M<sub>&#x02299;</sub>) :&nbsp;&nbsp;<input type="text" name="Ms" value="<?php echo isset($_GET['Ms']) ? $_GET['Ms'] : $Ms ?>"  size="10" maxlength="50"/></td>
+                        <td style="padding: 0px 0px 10px 30px;">Stellar radius (R<sub>&#x02299;</sub>) : <input type="text" name="Rs" value="<?php echo isset($_GET['Rs']) ? $_GET['Rs'] : $Rs ?>"  size="10" maxlength="50"/></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 0px 0px 10px 30px;">Effective temperature (K) :&nbsp;&nbsp;<input type="text" name="Teff" value="<?php echo isset($_GET['Teff']) ? $_GET['Teff'] : $Teff ?>"  size="10" maxlength="50"/></td>
+                        <td style="padding: 0px 0px 10px 30px;">Metallicity ([Fe/H]) : <input type="text" name="Z" value="<?php echo isset($_GET['Z']) ? $_GET['Z'] : $Z ?>"  size="10" maxlength="50"/></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 0px 0px 10px 30px;">Projected rotation velocity (km/s) :&nbsp;&nbsp;<input type="text" name="vsini" value="<?php echo isset($_GET['vsini']) ? $_GET['vsini'] : $vsini ?>"  size="10" maxlength="50"/></td>
+                        <td style="padding: 0px 0px 10px 30px;">Rotation period (days) :&nbsp;&nbsp;<input type="text" name="Prot" value="<?php echo isset($_GET['Prot']) ? $_GET['Prot'] : $Prot ?>"  size="10" maxlength="50"/>&ensp;(only required if sampling the RV activity rms)</td>
+                    </tr>
+</table>
+
+
 
 <br>
 <p style="font-size:20px">&nbsp;&nbsp;&nbsp;<b>RV noise sources:</b></p><br>&nbsp;&nbsp;&nbsp;
@@ -165,4 +231,4 @@
         </tr>
 </table>
 
-<br>&emsp;<input type=submit value="Run RVFC" name="submit"/>
+<br>&emsp;<input type=submit value="Run RVFC" name="runrvfc"/>

@@ -9,7 +9,6 @@
 <select name="spectrograph">
 <option value="nospec">--</option>
 <option value="SpectrographFiles/apfinfile.txt">APF</option>
-<option value="SpectrographFiles/apogeeinfile.txt">APOGEE</option>
 <option value="SpectrographFiles/carmenesirinfile.txt">CARMENES-IR</option>
 <option value="SpectrographFiles/carmenesvisinfile.txt">CARMENES-VIS</option>
 <option value="SpectrographFiles/coralieinfile.txt">CORALIE</option>

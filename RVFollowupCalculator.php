@@ -92,7 +92,7 @@ td, th {
                             <li><a class="page-scroll" href="index.html#research-section">Research</a></li>
                             <li><a class="page-scroll" href="index.html#cv-section">CV</a></li>
                             <li><a class="page-scroll" href="index.html#contact-section">Contact</a></li>
-                            <li><a href="RVFollowupCalculator_test.php">RVFC</a></li>
+                            <li><a href="RVFollowupCalculator.php">RVFC</a></li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
                   </div><!-- /.container -->
@@ -105,7 +105,7 @@ td, th {
 	    
             <!-- ========== BEGIN CALCULATOR FORM======== -->
 	    <br><br><br><br><br>
-            <form action="http://astro.utoronto.ca/~cloutier/RVFollowupCalculator_test.php" method="get" >
+            <form action="http://astro.utoronto.ca/~cloutier/RVFollowupCalculator.php" method="get" >
 	    &nbsp;&nbsp;&nbsp;<input type="submit" name="submit_calculate_sigRV_phot" value="Option 1: calculator-derived RV precision" />
 	    <br/><br/>
 	    &nbsp;&nbsp;&nbsp;<input type="submit" name="submit_set_sigRV_phot" value="Option 2: user-specified RV precision" /><br/><br/>
@@ -123,10 +123,18 @@ td, th {
                 <?php include 'option1_stellar.php'; ?>
             <?php endif; ?>
 
+
             <!-- Ask user to specify sigRV instead of calculating it -->
             <?php if (isset($_GET['submit_set_sigRV_phot'])) : ?>
                  <?php include 'option2.php'; ?>
             <?php endif; ?>
+
+
+	    <!-- Run the RVFC -->
+	    <?php if (isset($_GET['runrvfc'])) : ?>
+		<p>running RVFC</p>
+		<?php include 'runRVFC.php'; ?>
+	    <?php endif; ?>
 	    </form>
 	    <!-- ========= END CALCULATOR FUNCTION=========-->
 
