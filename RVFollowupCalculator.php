@@ -132,7 +132,6 @@ td, th {
 
 	    <!-- Run the RVFC -->
 	    <?php if (isset($_GET['runrvfc'])) : ?>
-		<p>running RVFC</p>
 		<?php include 'runRVFC.php'; ?>
 	    <?php endif; ?>
 	    </form>
