@@ -108,7 +108,9 @@ td, th {
             <form action="http://astro.utoronto.ca/~cloutier/RVFollowupCalculator.php" method="get" >
 	    &nbsp;&nbsp;&nbsp;<input type="submit" name="submit_calculate_sigRV_phot" value="Option 1: calculator-derived RV precision" />
 	    <br/><br/>
-	    &nbsp;&nbsp;&nbsp;<input type="submit" name="submit_set_sigRV_phot" value="Option 2: user-specified RV precision" /><br/><br/>
+	    &nbsp;&nbsp;&nbsp;<input type="submit" name="submit_set_sigRV_phot" value="Option 2: user-specified RV precision" />
+	    <br/><br/>
+            &nbsp;&nbsp;&nbsp;<input type="submit" name="submit_upload_fields" value="Option 3: upload input file" />
 
             <!-- Calculate sigRV using the calculator -->
             <?php if (isset($_GET['submit_calculate_sigRV_phot']) && ! isset($_GET['submit_spec'])) : ?>
@@ -129,6 +131,17 @@ td, th {
                  <?php include 'option2.php'; ?>
             <?php endif; ?>
 
+
+	    <!-- Upload file for a particular calcuation -->
+	    <?php if (isset($_GET['submit_upload_fields']) && ($_GET['image']=="")) : ?>
+		<p style="font-size:30px">&nbsp;&nbsp;&nbsp;<b>Option 3: upload input file</b></p>&nbsp;&nbsp;&nbsp;
+      		<form action="option3.php" method="POST" enctype="multipart/form-data">
+         		<input type="file" name="image" accept=".csv"/><br>
+         		<input type = "submit" value="Upload csv"/><br>
+      		</form>
+	    <?php elseif ($_GET['image']!="") : ?>
+		<?php include 'option3.php'; ?>
+            <?php endif; ?>
 
 	    <!-- Run the RVFC -->
 	    <?php if (isset($_GET['runrvfc'])) : ?>
