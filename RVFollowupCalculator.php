@@ -133,15 +133,10 @@ td, th {
 
 
 	    <!-- Upload file for a particular calcuation -->
-	    <?php if (isset($_GET['submit_upload_fields']) && ($_GET['image']=="")) : ?>
-		<p style="font-size:30px">&nbsp;&nbsp;&nbsp;<b>Option 3: upload input file</b></p>&nbsp;&nbsp;&nbsp;
-      		<form action="option3.php" method="POST" enctype="multipart/form-data">
-         		<input type="file" name="image" accept=".csv"/><br>
-         		<input type = "submit" value="Upload csv"/><br>
-      		</form>
-	    <?php elseif ($_GET['image']!="") : ?>
-		<?php include 'option3.php'; ?>
+	    <?php if (isset($_GET['submit_upload_fields']) || isset($_GET['submit_upload'])) : ?>
+                 <?php include 'option3.php'; ?>
             <?php endif; ?>
+
 
 	    <!-- Run the RVFC -->
 	    <?php if (isset($_GET['runrvfc'])) : ?>

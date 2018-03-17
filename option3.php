@@ -1,33 +1,21 @@
+<p style="font-size:30px">&nbsp;&nbsp;&nbsp;<b>Option 3: upload input file</b></p>&nbsp;&nbsp;&nbsp;
+
+<form enctype="multipart/form-data" action="option3.php" method="POST">
+        <input name="file" type="file" accept=".csv"/><br>
+        <input name="submit" type="submit" value="Upload csv" />
+</form>
+
 <?php
-
-	echo $_GET['image'];
-	echo $_FILES['image']['type'];
-
-   /*if(isset($_FILES['image'])){
-      $errors= array();
-      $file_name = $_FILES['image']['name'];
-      $file_size = $_FILES['image']['size'];
-      $file_tmp = $_FILES['image']['tmp_name'];
-      $file_type = $_FILES['image']['type'];
-      $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
-      
-      $expensions= array("jpeg","jpg","png");
-      
-      if(in_array($file_ext,$expensions)=== false){
-         $errors[]="extension not allowed, please choose a JPEG or PNG file.";
-      }
-      
-      if($file_size > 2097152) {
-         $errors[]='File size must be excately 2 MB';
-      }
-      
-      if(empty($errors)==true) {
-         move_uploaded_file($file_tmp,"images/".$file_name);
-         echo "Success";
-      }else{
-         print_r($errors);
-      }
-   } else {
-      echo "no file";
-   }*/
+if ($_FILES["file"]["error"] > 0)
+  {
+  echo "Error: " . $_FILES["file"]["error"] . "<br>";
+  }
+else
+  {
+  echo "Upload: " . $_FILES["file"]["name"] . "<br>";
+  echo "Type: " . $_FILES["file"]["type"] . "<br>";
+  echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
+  echo "Stored in: " . $_FILES["file"]["tmp_name"];
+  }
+	//print_r($_FILES);
 ?>
