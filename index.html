@@ -180,14 +180,14 @@
 				<a href="http://spirou.irap.omp.eu/" style="color:#C60000">
 				SPIRou</a> and <a href="http://www.astro.umontreal.ca/nirps/" style="color:#C60000">
 				NIRPS</a> science teams working on the radial velocity detection and 
-				characterization of exoplanets around M dwarf stars. I employ statistical methods 
+				characterization of exoplanets around M dwarf stars. I frequently employ statistical methods 
 				commonly used in machine learning to 
-				mitigate the effects of stellar activity thus facilitating the  
+				model the effects of stellar activity thus facilitating the  
 				detection of faint signals from small, Earth-like planets. 
 				My broad research interests include understanding the bulk properites of the 
 				sub-Neptune-sized exoplanet population which is informed by the continuing discovery 
 				of new exoplanets and by various observational opportunities afforded by certain 
-				exoplanets such as transmission sepctroscopy and direct imaging of small planets in the 
+				exoplanets such as transmission spectroscopy and direct imaging of small planets in the 
 				coming decades. In practice I work on developing robust techniques to 
 				both detect large numbers of new exoplanets as well as to characterize known exoplanets 
 				such as those found in transit around their host star and those which may be amenable 
@@ -263,34 +263,57 @@
 				 	<p style="font-size:24px">Generally speaking...</p>
                                         <p style="font-size:18px">most of my research revolves around the endeavour of detecting and characterizing 
 					Earth-like planets around nearby M dwarf stars using the radial velocity method.</p>
-					<p style="font-size:18px">M dwarf  
-					stars are most efficiently observed at near-infrared wavelengths where their spectra peak
-					and stellar absorption features, which are required to measure 
-					precise radial velocities, are abundant. To conduct observations of nearby M dwarfs and search 
+					<p style="font-size:18px">Mid-to-late M dwarf  
+					stars in particular are most efficiently observed at near-infrared wavelengths where their brightness peaks
+					and the stellar absorption features required to measure 
+					precise radial velocities are abundant. To conduct observations of nearby M dwarfs and search 
 					for faint planetary signals, a number of innovative instruments are currently 
 					being designed and built including <a href="http://spirou.irap.omp.eu/" style="color:#D45C00">
-                                	SPIRou</a> and <a href="http://www.astro.umontreal.ca/nirps/" style="color:#D45C00">NIRPS</a>; 
-					near-infrared spectrographs whose observations I will use to both detect  
-					new exoplanetary systems as well as to characterize the masses of known transiting planetary 
-					systems thus constraining their bulk densities.
+                                	SPIRou</a> and <a href="http://www.astro.umontreal.ca/nirps/" style="color:#D45C00">NIRPS</a>: 
+					high-resolution near-infrared spectrographs whose observations will be used to both detect  
+					new exoplanetary systems as well as to characterize the masses of known transiting planets.
 					<p style="font-size:18px">Click <a href="https://ui.adsabs.harvard.edu/#search/q=(%20author%3A%22cloutier%2C%20ryan%22%20AND%20year%3A2013-2018)&sort=date%20desc%2C%20bibcode%20desc&p_=0" style="color:#D45C00">here</a> for my list of publications on ADS.</p>
                                     </blockquote>
                                 </div>
+				<div class="item">
+				    <blockquote>
+					<p style="font-size:24px">Quantifying the observational requirement for the RV characterization of transiting planets</p>
+					<p style="font-size:18px">In this
+					<a href="https://arxiv.org/abs/1807.01263" style="color:#D45C00">paper</a> we derived a model to calculate the 
+					number of measurements required to detect a transiting planet's radial velocity semi-amplitude at a given level of 
+					precision. Separate formalisms are presented in the presence of either correlated or uncorrelated noise.</p>
+					<p style="font-size:18px">We then
+					calculated the observing time required to characterize the full expected TESS yield using either an optical or 
+					near-infrared spectrograph. As an example, we find that the efficient mass characterization of 50 TESS planets 
+					smaller than 4 Earth radii can be completed in as little as &#126;60 observing nights. We also describe how our 
+					calculations can be used to identify the 'best' transiting planets for RV follow-up observations based on the 
+					efficiency with which their masses can be measured.</p>
+					<p style="font-size:18px">The <a href="http://maestria.astro.umontreal.ca/rvfc/" style="color:#D45C00">Radial 
+					Velocity Follow-up Calculator</a> online tool is introduced 
+					which allows users to use our model 
+					to rapidly compute the observational requirement to detect any transiting planet's RV semi-amplitude with a 
+					user-defined spectrograph.</p>
+				    <blockquote>
+                                    <img style="border:4px solid #991a04;" src="images/Nrvcomparison.png" height="320" width="282" align="middle">
+				</div>
                                 <div class="item">
                                     <blockquote>
                                         <p style="font-size:24px">Simulating the SPIRou Legacy Survey Planet-Search</p>
                                         <p style="font-size:18px">In this 
-					<a href="https://arxiv.org/abs/1712.06673" style="color:#D45C00">paper</a> we run a detailed 
-					Monte-Carlo simulation simulating the up-coming SPIRou Legacy Survey-Planet Search which will survey 
-					&#126; 100 M dwarfs in the Northern sky searching for new exoplanets. Our simulations consider the 
-					planet occurrence rates around M dwarfs, physical models of stellar activity, and uses our Gaussian 
-					process regression method to simultaneously model planets and activity.</p>
+					<a href="https://arxiv.org/abs/1712.06673" style="color:#D45C00">paper</a> we ran a detailed 
+					Monte-Carlo simulation simulating the up-coming SPIRou Legacy Survey Planet-Search which will survey 
+					&#126; 100 M dwarfs in the Northern sky searching for new exoplanetary systems. These simulations 
+					are based off of the measured
+					planet occurrence rates around M dwarfs, physical models of stellar activity, and utilizes a Gaussian 
+					process regression method to simultaneously model planets and activity thus improving the survey sensitivity 
+					to small, Earth-like planets in particular.</p>
 					<p style="font-size:18px">We predict &#126;85 new exoplanetary detections including &#126;8 temperate 
 					planets with Earth-like masses, &#126;5 of which may be imagable with high-contrast imagers on the next generation 
 					of Extremely Large Telescopes.</p>
 					<p style="font-size:18px">Output stellar and planetary populations from our simulations are made available
 					on <a href="https://github.com/r-cloutier/SLSPS_Simulations" style="color:#D45C00">github.</a></p>
                                     <blockquote>
+                                    <img style="border:4px solid #991a04;" src="images/yield.png" height="320" width="760" align="middle">
                                 </div>
                                 <div class="item">
                                     <blockquote>
@@ -308,22 +331,7 @@
 					style="color:#D45C00">Montr&eacute;al</a> and was featured by 
 					a number of media outlets including the CBC, CTV, and the Discovery channel.
                                     <blockquote>
-                                </div>
-                                <div class="item">
-                                    <blockquote>
-					<p style="font-size:24px">Detecting additional planets in the GJ 1132 planetary system</p>
-					<p style="font-size:18px">In this 
-					<a href="https://arxiv.org/abs/1610.09667" style="color:#D45C00">paper</a> I describe 
-					the use of a trained mean Gaussian process regression model of the stellar activity in radial 
-					velocity. Here we applied this technique to the GJ 1132 planetary system to model the stellar activity 
-					and measure the detection completeness to additional planets hypothesized to exist within the system 
-					based on the high occurrence rate of planets around stars like GJ 1132.</p>
-					<p style="font-size:18px">This 
-					technique will prove to be useful when characterizing transiting planet candidates such as those 
-					that will be discovered with NASA's up-coming <i>TESS</i> mission. The mass characterization of these planets 
-					will be imperative to the interpretation of measurements of their atmospheres with the up-coming 
-					<i>James Webb Space Telescope</i>.</p>
-                                    <blockquote>
+                                    <img style="border:4px solid #991a04;" src="images/k218.png" height="320" width="300" align="middle">
                                 </div>
 				<!--<div class="item">
                                     <blockquote>
